@@ -1,0 +1,25 @@
+<div class="w3-container w3-teal">
+    <h2 class="w3-margin-top w3-margin-bottom"><b>{{title}}</b></h2>
+    <h3>Select correct answer and Submit</h3>
+</div>
+
+ 
+<form class="w3-container" action="/exercise/{{id}}" method="post">
+      % i = 0
+      % for q in questions:
+        <h4 class="w3-left">{{i+1}}. {{q}}</h4>
+        <div class="w3-panel w3-left-align w3-margin-left w3-border-bottom">
+        % for o in options[i]:
+        <p>
+            <input class="w3-radio" type="radio" name="{{i}}" value="{{o}}">
+            <label>{{o}}</label>
+        </p>
+        % end
+        % i += 1
+        </div>
+      % end
+      <input type="hidden" name="num" value="{{i}}"/>
+    <input class="w3-large w3-button w3-round-xlarge w3-teal" name="submit" value="submit" type="submit"/>
+</form>
+<button class="w3-large w3-button w3-round-xlarge w3-teal w3-margin-top w3-margin-bottom" onclick="location.replace('/exercise')">Canel and Back</button>
+

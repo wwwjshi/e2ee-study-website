@@ -1,0 +1,5 @@
+line 1: title 
+line 2: sender
+line 3: content
+line 4: replier|reply
+repeat 4

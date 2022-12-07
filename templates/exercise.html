@@ -1,0 +1,25 @@
+% if login != None:
+<div class="w3-container w3-teal">
+    <h2 class="w3-margin-top w3-margin-bottom"><b>Exercise List</b></h2>
+    <h3>Select your Practice quiz</h3>
+  </div>
+<ul class="w3-ul w3-card-4">
+    % for exec in exercises:
+        <li class="w3-bar">
+            <img src="img/quiz-icon.png" class="w3-bar-item w3-square w3-hide-small" style="width:85px">
+            <div class="w3-bar-item">
+                <span class="w3-large w3-left" href="exercise/{{exec[0]}}"><a href="exercise/{{exec[0]}}">{{exec[1]}} </a></span><br>
+                <span class="w3-left">#{{exec[0]}}</span>
+            </div>
+        </li>
+    % end
+</ul>
+
+% else:
+<div class="w3-cell-top w3-light-grey w3-padding-large">
+    <h3>Login to access Exercises</h3>
+    <button class="w3-large w3-button w3-round-xlarge w3-teal" onclick="location.replace('/login')">login</button>
+    <br>
+    <br>
+    <button class="w3-large w3-button w3-round-xlarge w3-teal" onclick="location.replace('/')">Back to Home</button>
+</div>

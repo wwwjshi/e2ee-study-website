@@ -1,0 +1,20 @@
+<div class="w3-container w3-teal">
+    <h2 class="w3-margin-top w3-margin-bottom"><b>{{title}}</b></h2>
+</div>
+
+<h3><b>Score: {{percentage}}</b></h3>
+<div class="w3-container" action="/exercise/{{id}}" method="post">
+    % i = 0
+    % for q in questions:
+    <h4 class="w3-left">{{i+1}}. {{q}}</h4>
+    <div class="w3-panel w3-left-align w3-margin-left w3-border-bottom">
+        <h4 class="w3-left w3-bar"><b>{{correctness[i]}}</b></h4>
+        <h4 class="w3-left w3-bar">Your answer:&nbsp{{user_answers[i]}}</h4>
+        <h4 class="w3-left w3-bar">Correct answer:&nbsp{{solutions[i]}}</h4>
+    % i += 1
+    </div>
+    % end
+</div>
+<button class="w3-large w3-button w3-round-xlarge w3-teal w3-margin-top w3-margin-bottom" onclick="location.replace('/exercise/{{id}}')">Re-attempt</button>
+<button class="w3-large w3-button w3-round-xlarge w3-teal w3-margin-top w3-margin-bottom" onclick="location.replace('/exercise')">Back to Exercises</button>
+

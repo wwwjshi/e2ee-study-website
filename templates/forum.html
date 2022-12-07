@@ -1,0 +1,70 @@
+% if login!=None:
+    % if status == 'mute':
+    <div class="w3-container w3-teal">
+        <h2 class="w3-margin-top w3-margin-bottom"><b>Discussion Forum</b></h2>
+        <div class="w3-cell-top w3-light-grey w3-padding-large w3-margin-bottom">
+            <h3>You've been MUTED, Please contact Staff to for further information</h3>
+            <br>
+            <br>
+            <button class="w3-large w3-button w3-round-xlarge w3-teal" onclick="location.replace('/')">Back to Home</button>
+        </div>
+    </div>
+
+
+    % else:
+    <div class="w3-container w3-teal">
+        <h2 class="w3-margin-top w3-margin-bottom"><b>Discussion Forum</b></h2>
+
+        <button onclick="document.getElementById('1').style.display='block'" class="w3-button w3-light-grey w3-large w3-round-xxlarge w3-margin-bottom"><b>Post New Thread</b></button>
+    
+        <div id="1" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-teal" style="max-width:600px">
+    
+            <div class="w3-center"><br>
+            <span onclick="document.getElementById('1').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">x</span>
+            </div>
+    
+            <form class="w3-container" action="/forum" method="post">
+            <div class="w3-section">
+                <h3 class="w3-left"><b>Title:</b></h3>
+                <input class="w3-input w3-margin-bottom" type="text" placeholder="Enter Title" name="title" required>
+                <h3 class="w3-left"><b>Content:</b></h3>
+                <textarea class="w3-input" style="height:120px" placeholder="Enter Content" name="content" required></textarea>
+                <button class="w3-button w3-light-grey w3-section" type="submit">Post</button>
+                <button onclick="document.getElementById('1').style.display='none'" class="w3-button w3-light-grey w3-section w3-margin-left">Cancel</button>
+            </div>
+            </form>
+        </div>
+        </div>
+
+    </div>
+
+    <div class="w3-container w3-cell"></div>
+        <ul class="w3-ul w3-card-4">
+            % for thread in threads:
+                <li class="w3-bar">
+                    <img src="img/forum-icon.png" class="w3-bar-item w3-square w3-hide-small" style="width:85px">
+                    <div class="w3-bar-item">
+                        <span class="w3-large w3-left" href="forum/{{thread[0]}}"><a href="forum/{{thread[0]}}">{{thread[1]}}</a></span><br>
+                        <span class="w3-left">#{{thread[0]}}</span>
+                    </div>
+                </li>
+            % end
+        </ul>
+    </div>
+    % end
+
+% else:
+<div class="w3-container w3-teal">
+    <h2 class="w3-margin-top w3-margin-bottom"><b>Discussion Forum</b></h2>
+</div>
+
+<div class="w3-cell-top w3-light-grey w3-padding-large">
+    <h3>Login to access Forum</h3>
+    <button class="w3-large w3-button w3-round-xlarge w3-teal" onclick="location.replace('/login')">login</button>
+    <br>
+    <br>
+    <button class="w3-large w3-button w3-round-xlarge w3-teal" onclick="location.replace('/')">Back to Home</button>
+</div>
+
+% end

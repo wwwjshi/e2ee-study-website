@@ -1,0 +1,13 @@
+
+<ul class="friendlist w3-ul w3-card-4">
+    % for name in friends:
+        <li class="w3-bar">
+            <img src="img/default-avatar.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+            <div class="w3-bar-item">
+                <span class="w3-large" href="chat/{{name}}"><a href="chat/{{name}}">{{name}} </a></span><br>
+                <span>Student</span>
+            </div>
+        </li>
+    % end
+</ul>
+

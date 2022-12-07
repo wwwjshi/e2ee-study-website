@@ -1,0 +1,49 @@
+<head>
+  <base href="/template">
+  <!--Reference of CSS file used in this project 
+       *    Title: W3.CSS
+       *    Author: W3.CSS
+       *    Date: 12/2020
+       *    Code version: 4.15
+       *    Availability: https://www.w3schools.com/w3css/4/w3.css -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <title>INFO2222 Usability</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <style>
+    a.w3-bar-item{
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+
+<div class="w3-bar w3-dark-grey w3-padding-small">
+  <a class="w3-bar-item w3-button" href="/home">Home</a>
+  <a class="w3-bar-item w3-button" href="/about">About</a>
+
+  % if admin == None:
+    <a class="w3-bar-item w3-button" href="/forum">Forum</a>
+    <a class="w3-bar-item w3-button" href="/courses">Courses</a>
+    <a class="w3-bar-item w3-button" href="/exercise">Exercises</a>
+    <a class="w3-bar-item w3-button" href="/friendlist">Friend List</a>
+    <a class="w3-bar-item w3-button" href="/inbox">Inbox</a>
+  % else:
+    <a class="w3-bar-item w3-button" href="/manage_user">Manage User</a>
+    <a class="w3-bar-item w3-button" href="/manage_course">Manage Course</a>
+  % end
+
+  % if login != None or admin != None:
+    <a class="w3-bar-item w3-button w3-medium w3-right w3-round-xxlarge w3-teal w3-margin-left" href="/logout">Logout</a>
+    % if login != None:
+      <a class="w3-bar-item w3-button w3-medium w3-right w3-round-xxlarge w3-teal" onclick="location.replace('/userhome')">{{login}}</a>
+    % else:
+      <a class="w3-bar-item w3-button w3-medium w3-right w3-round-xxlarge w3-teal" onclick="location.replace('/userhome')">Admin</a>
+    % end
+  % else:
+    <a class="w3-bar-item w3-button w3-medium w3-right w3-round-xxlarge w3-teal w3-margin-left" href="/register">Register</a>
+    <a class="w3-bar-item w3-button w3-medium w3-right w3-round-xxlarge w3-teal" href="/login">Login</a>
+  % end
+</div>
+
+<center>

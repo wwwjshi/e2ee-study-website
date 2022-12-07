@@ -1,0 +1,16 @@
+<div class="w3-container w3-teal">
+    <h2 class="w3-margin-top w3-margin-bottom"><b>Course List</b></h2>
+    <h3>Select your Course</h3>
+  </div>
+<ul class="w3-ul w3-card-4">
+    % for course in courselist:
+        <li class="w3-bar">
+            <img src="img/default_course_icon.png" class="w3-bar-item w3-square w3-hide-small" style="width:85px">
+            <div class="w3-bar-item">
+                <span class="w3-large w3-left" href="courses/{{course[0]}}"><a href="courses/{{course[0]}}">{{course[0]}} </a></span><br>
+                <span class="w3-left">{{course[1]}}</span>
+            </div>
+        </li>
+    % end
+</ul>
+

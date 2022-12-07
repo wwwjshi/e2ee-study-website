@@ -1,0 +1,16 @@
+Message to {{friend}}
+<p>
+    Message: <input id="msg" name="msg" type="text" />
+    <button id="btn">send</button>
+    <span hidden id="pbk">{{pbk}}</span>
+
+
+<form action="/chat/{{friend}}" method="post">
+    <input hidden id="cipher" name="cipher" type="text" />
+    <input hidden id="sign" name="sign" type="text" />
+    <input hidden id="send" type="submit" />
+</form>
+
+<script src="js/msg_encr.js"></script>
+</p>
+</center>

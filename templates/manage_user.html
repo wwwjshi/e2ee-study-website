@@ -1,0 +1,96 @@
+<style>
+  /* The container */
+  .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: teal;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 9px;
+    height: 13px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+</style>
+
+<div class="w3-container w3-teal">
+  <h2 class="w3-margin-top w3-margin-bottom"><b>User Management</b></h2>
+  <h3>Select user(s) to Delete/Mute/Unmute</h3>
+</div>
+
+
+<form action="/manage_user" method="post">
+  <ul class="w3-ul w3-card-4">
+    % i = 0
+    % for user in userlist:
+      <li class="w3-bar">
+        <img src="img/default-avatar.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+        <div class="w3-bar-item">
+          <span class="w3-large">{{user[0]}}</span>
+          <br>
+          <span>{{user[1]}}</span>
+        </div>
+        <label class="container">
+          <input type="checkbox" name="modfiy_list" value="{{user[0]}}">
+          <span class="checkmark"></span>
+        </label>
+      </li>
+      % i += 1
+    % end
+  </ul>
+  <br>
+  <input class="w3-large w3-button w3-round-xlarge w3-teal" name="mute" value="mute" type="submit"/>
+  <input class="w3-large w3-button w3-round-xlarge w3-teal" name="unmute" value="unmute" type="submit"/>
+  <input class="w3-large w3-button w3-round-xlarge w3-teal" name="delete" value="delete" type="submit"/>
+</form>

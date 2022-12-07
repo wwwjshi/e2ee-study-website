@@ -1,0 +1,13 @@
+
+<ul class="inbox">
+    % for msg in xmsg:
+        <li>
+            <span class="sender">{{msg[0]}}: </span>
+            <span hidden class="cipher">{{msg[1]}}</span>
+            <span hidden class="sign">{{msg[2]}}</span>
+            <span hidden class="vfk">{{msg[3]}}</span>
+            <span class="plain"></span>
+        </li>
+    % end
+</ul>
+<script src="js/msg_decr.js"></script>

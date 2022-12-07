@@ -1,0 +1,65 @@
+<div class="w3-container w3-teal w3-padding-large">  
+    <div class="w3-cell-top w3-light-grey w3-padding-large  w3-margin-top w3-margin-bottom">
+        <h2 ><b>{{thread.title}}</b></h2>
+        <div class="w3-left-align">
+            <div class="w3-cell w3-margin-right" style="width:150px">
+                <img src="img/default-avatar.png" class="w3-circle w3-hide-small" style="width:40px">
+                <br>
+                <span class="w3-large">{{thread.sender}}</span>
+                <br>
+                <span class="w3-small">Student</span>
+            </div>
+            <div class="w3-cell w3-margin-right">
+                <br>
+                <h4>{{thread.content}}</h4>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="document.getElementById('1').style.display='block'" class="w3-button w3-light-grey w3-large w3-round-xxlarge"><b>Make Reply</b></button>
+    <div id="1" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-teal" style="max-width:600px">
+            <div class="w3-center"><br>
+            <span onclick="document.getElementById('1').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">x</span>
+            </div>
+    
+            <form class="w3-container" action="/forum/{{id}}" method="post">
+            <div class="w3-section">
+                <h3 class="w3-left"><b>Content:</b></h3>
+                <textarea class="w3-input" style="height:120px" placeholder="Enter Content" name="content" required></textarea>
+                <button class="w3-button w3-light-grey w3-section" type="submit">Reply</button>
+                <button onclick="document.getElementById('1').style.display='none'" class="w3-button w3-light-grey w3-section w3-margin-left">Cancel</button>
+            </div>
+            </form>
+        </div>
+    </div>
+
+    <h3 class="w3-left-align">Replies:</h3>
+
+    % if len(thread.replies) == 0:
+    <div class="w3-cell-top w3-light-grey w3-padding-large w3-margin">
+        <h3>No replies yet</h3>
+    </div>
+
+    % else:
+        % for reply in thread.replies:
+        <div class="w3-cell-top w3-light-grey w3-padding-large w3-margin">
+            <div class="w3-left-align">
+                <div class="w3-cell w3-margin-right" style="width:150px">
+                    <img src="img/default-avatar.png" class="w3-circle w3-hide-small" style="width:40px">
+                    <br>
+                    <span class="w3-large">{{reply[0]}}</span>
+                    <br>
+                    <span class="w3-small">Student</span>
+                </div>
+                <div class="w3-cell w3-margin-right">
+                    <br>
+                    <h4>{{reply[1]}}</h4>
+                </div>
+            </div>
+        </div>
+        % end
+    % end
+    
+
+</div>

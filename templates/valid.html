@@ -1,0 +1,44 @@
+<div class="w3-container w3-teal">
+    <h1 class="w3-padding-64"><b> </b></h1>
+    <h2 class="w3-margin-bottom"><b>Welcome {{name}}!</b></h2>
+
+</div>
+
+% if admin == None:
+    <div class="w3-cell-top w3-light-grey w3-padding-large w3-margin-bottom">
+        <h2 class="w3-left-align"><b>Learn:</b></h2>
+            <h3>Begin your learning</h3>
+            <button class="w3-large w3-button w3-round-xlarge w3-teal" onclick="location.replace('/courses')">Courses</button>
+    </div>
+
+    <div class="w3-cell-top w3-light-grey w3-padding-large w3-margin-bottom">
+        <h2 class="w3-left-align"><b>Practive:</b></h2>
+            <h3>Take a practice exercise</h3>
+            <button class="w3-large w3-button w3-round-xlarge w3-teal" onclick="location.replace('/exercise')">Exercises</button>
+    </div>
+
+    <div class="w3-cell-top w3-light-grey w3-padding-large">
+        <h2 class="w3-left-align"><b>Share:</b></h2>
+            <h3>Join a discussion</h3>
+            <button class="w3-large w3-button w3-round-xlarge w3-teal" onclick="location.replace('/forum')">Discusions Forum</button>
+            <br>
+            <h3>Message a friend</h3>
+            <button class="w3-large w3-button w3-round-xlarge w3-teal" onclick="location.replace('/friendlist')">Friend List</button>
+            <br>
+            <h3>View your inbox</h3>
+            <button class="w3-large w3-button w3-round-xlarge w3-teal" onclick="location.replace('/inbox')">Inbox</button>
+    </div>
+% else:
+    <div class="w3-cell-top w3-light-grey w3-padding-large w3-margin-bottom">
+        <h2 class="w3-left-align"><b>User management:</b></h2>
+            <h3>Delete / Mute a user</h3>
+            <button class="w3-large w3-button w3-round-xlarge w3-teal" onclick="location.replace('/manage_user')">User List</button>
+    </div>
+
+    <div class="w3-cell-top w3-light-grey w3-padding-large">
+        <h2 class="w3-left-align"><b>Course management:</b></h2>
+            <h3>Delete a course guide</h3>
+            <button class="w3-large w3-button w3-round-xlarge w3-teal" onclick="location.replace('/manage_course')">Course List</button>
+    </div>
+% end
+
